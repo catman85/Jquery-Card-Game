@@ -1,0 +1,216 @@
+<html>
+  <head>
+
+    <!-- for responsivedesign -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- document encoding -->
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="my.css">
+    <!-- Google Roboto Font -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,700i&amp;subset=greek" rel="stylesheet">
+    <!-- Bootstrap Toggle -->
+    <link href="https://gitcdn.github.io/bootstrap-toggle/2.2.2/css/bootstrap-toggle.min.css" rel="stylesheet">
+
+  </head>
+
+<body>
+<!-- <div id="particles-js"> -->
+<div class="selection conainer-fluid">
+
+      <div class="row"><!--row1 jumbotron-->
+        <div class="col-12">
+                    <div class="jumbotron">
+                    <div class="container" style="margin-left:auto; margin-right:auto; display:block; text-align:center;">
+                      <h1 class="display-4">Select your Heroes.</h1>
+                      <p class="lead">Pick <span class="badge badge-danger">5</span> <span class="badge badge-primary">Heroes</span> and then click the <span class="badge badge-success">Continue</span> Button at the Bottom of the page.</p>
+                    </div>
+                  </div>
+        </div>
+      </div>
+      <!-- end row1 jumbotron-->
+
+      <!-- show 10 cards -->
+      <div class="row justify-content-center"><!--row2-->
+        <script>
+        var img = "";
+        for(i=1;i<=10;i++){
+          img='<img class="img-fluid" style="margin:20px; margin-right: auto; margin-left: auto; display: block; max-width: 50%; height: auto;" src="pics/hero'+i+'.png"></img>';
+          document.write('<div class="col-xs-6 col-sm-4 col-md-2"><div id="card'+i+'"class="picked-card card border-info mb-3" style="max-width: 18rem;"><div class="card-header">Hero '+i+'</div><div class="card-body text-info">'+img+'</div><label id="switch-'+i+'" class="switch card-title"><input class="myCheckbox" checked="false" type="checkbox"><span class="slider"></span></label></div></div>');
+          if(i==5){
+            document.write('</div>');//end row 2
+            document.write('<div class="row justify-content-center">');//row 3
+          }
+        }
+        // document.write('');
+        </script>
+      </div>
+      <!-- end row 3 -->
+
+
+    </br>
+
+      <div class="row">
+        <div class="col-12">
+          <!-- enter class disabled -->
+          <button type="button" style=" margin-left:auto; margin-right:auto; display: block;" id="continue" class="btn btn-success" disabled>Continue</button>
+        </div>
+      </div>
+
+    </br></br>
+</div><!--end selection -->
+
+
+<div id="jumbo2"class="jumbotron container-fluid">
+<!-- <div class="container"> -->
+  <div style="margin-left:auto; margin-right:auto; display:block; text-align:center;">
+  <h1 class="display-4">Make a Move!</h1>
+  <p class="lead">Pick <span class="badge badge-danger">Attack</span> or <span class="badge badge-success">Defense</span> and then click on <span class="badge badge-dark">Next Round</span>.</p>
+</div>
+</div>
+<div class="battle container-fluid">
+
+    <div class="row">
+      <!-- User Hero -->
+      <div class="col-12 col-md-4">
+      <div class="w3-card-4 herocard">
+          <header class="w3-container w3-blue">
+            <h1 id="hero-num">Hero</h1>
+          </header>
+          <div class="w3-container">
+            <img id="hero-img" class="img-fluid" style="margin:20px; margin-right: auto; margin-left: auto; display: block; max-width: 50%; height: auto;" src="pics/iron-man.png"></img>
+          </div>
+          <footer class="w3-container w3-blue">
+            <h5>Stats:</h5>
+            <!-- Attack Bar -->
+            <div class="progress"> <!--aria-volumenow gives an animation effect to the progressbar <!-- colouris defined by bg-danger bg-success -->
+              <div id="hero-att" class="my-card-title progress-bar-animated progress-bar-striped progress-bar bg-danger mybar" role="progressbar" style="width: 50%" aria-valuenow="1" aria-valuemin="1" aria-valuemax="50">Attack: 25/50</div>
+            </div><br>
+
+            <!-- Defense Bar -->
+            <div class="progress">
+              <div id="hero-def" class="my-card-title progress-bar-animated progress-bar-striped progress-bar bg-success mybar" role="progressbar" style="width: 50%" aria-valuenow="1" aria-valuemin="1" aria-valuemax="50">Defense: 25/50</div>
+            </div><br>
+          </footer>
+      </div>
+
+      <!-- reset btn -->
+      <div class="herocard">
+         <button type="button" id="reset-btn"class="btn btn-outline-warning btn-block">Reset Game</button>
+      </div>
+    </div>
+
+    <!-- <div class="col-md-1"></div> -->
+    <div class="col-12 col-md-4">
+          <div class="row">
+                <!-- sword-card -->
+                <div id="attack-card" class="col-xs-6 card mb-3 swordcard">
+                <img class="card-img-top" class="img-fluid" style="max-width: 100%; height: auto;" src="pics/Sword.png" alt="Card image cap">
+                <div class="card-body">
+                  <h5 class="card-title my-card-title">Attack</h5>
+                  <!-- <p class="card-text">Attack!</p> -->
+                  <!-- <p class="card-text"><small class="text-muted">If your opponent ha</small></p> -->
+                </div>
+                  </div>
+
+                  <!-- shield-card -->
+              <div id="defend-card" class="col-xs-6 card mb-3 swordcard">
+              <img class="card-img-top" class="img-fluid" style="max-width: 100%; height: auto;" src="pics/border-shield-classic-knight-512.png" alt="Card image cap">
+              <div class="card-body">
+                <h5 class="card-title my-card-title">Defend</h5>
+                <!-- <p class="card-text">Attack!</p> -->
+                <!-- <p class="card-text"><small class="text-muted">If your opponent ha</small></p> -->
+              </div>
+                </div>
+        </div>
+        <div class="row results">
+          <div class="col-xs-12 outcome">
+            <button id="nextRound" type="button" class="btn btn-dark btn-lg">Next Round</button>
+            <p class="win">You Win!</p>
+            <p class="loose">You Loose!</p>
+            <p id="score" style="margin-left: 10px">Score: <0/5></p>
+            <p id="round" style="margin-left: 10px">Round: <1/5></p>
+          </div>
+        </div>
+  </div>
+    <!-- <div class="col-md-1"></div> -->
+
+
+        <!-- Robot Hero -->
+        <div class="col-12 col-md-4">
+              <div class="w3-card-4 herocard">
+                  <header class="w3-container w3-blue">
+                    <h1 id="robot-num">Robot</h1>
+                  </header>
+                  <div class="w3-container">
+                    <img id="robot-img" class="img-fluid" style="margin:20px; margin-right: auto; margin-left: auto; display: block; max-width: 50%; height: auto;" src="pics/batman.png"></img>
+                  </div>
+                  <footer class="w3-container w3-blue">
+                    <h5>Stats:</h5>
+                    <!-- Attack Bar -->
+                    <div class="progress">
+                      <div  id="robot-att" class="my-card-title progress-bar progress-bar-striped progress-bar-animated bg-secondary mybar" role="progressbar" aria-valuenow="1" aria-valuemin="1" aria-valuemax="50" style="width: 100%">Attack: ???</div>
+                    </div><br>
+
+                    <!-- Defense Bar -->
+                    <div class="progress">
+                      <div  id="robot-def" class="my-card-title progress-bar progress-bar-striped progress-bar-animated bg-secondary mybar" role="progressbar" aria-valuenow="1" aria-valuemin="1" aria-valuemax="50" style="width: 100%">Defense: ???</div>
+                    </div><br>
+                  </footer>
+              </div>
+
+              <!-- robot choice -->
+              <div id="used-att">
+                      <div class=" herocard alert alert-danger alert-dismissible fade show" role="alert">
+                    <strong>Robot</strong> used Attack!
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
+            </div>
+            <div id="used-def">
+                    <div class=" herocard alert alert-success alert-dismissible fade show" role="alert">
+                  <strong>Robot</strong> used Defense!
+                  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+          </div>
+      </div>
+
+
+    </div><!-- end row -->
+</div><!-- end battle -->
+
+
+<!-- footer -->
+<footer class="container-fluid text-center bg-lightgray">
+
+        <div class="copyrights" style="margin-top:25px;">
+            <br>
+            <br>
+                <br>
+                <p><span>Web Design By: ~Dimitris Vasil~ </span></p>
+            <div class="text-center">Icons made by <a href="http://www.freepik.com" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a></div>
+          <br>
+          <br>
+          <br>
+          <br>
+        </div>
+</footer>
+
+
+
+
+<!-- bootstrap JQuery and my scripts-->
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+<script src="https://gitcdn.github.io/bootstrap-toggle/2.2.2/js/bootstrap-toggle.min.js"></script>
+<script src="Scripts.js" type="text/javascript"></script>
+
+</body>
+</html>
